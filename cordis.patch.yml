@@ -1,0 +1,5 @@
+# Off-duty reminder bundle: Host half is a no-op; the Client half renders the
+# left sidebar entry, countdown panel and the animated reminder overlay.
+- insert:
+    - id: dsh-off-duty
+      name: '@oakzhong/dsh-off-duty'
