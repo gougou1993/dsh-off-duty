@@ -7,7 +7,7 @@ A fun scheduled off-work reminder plugin. Open the left "Off-duty bell" entry, s
 | Field | Value |
 | --- | --- |
 | Package | `@oakzhong/dsh-off-duty` |
-| Version | `1.0.0` |
+| Version | `1.0.1` |
 | Entry | `index.js` (Host, no-op) · `client.js` (Client) |
 | Type | DSH bundle plugin, ES module (`"type": "module"`, `"private": false`, MIT) |
 | Sidebar entry | Off-duty bell (left sidebar) |

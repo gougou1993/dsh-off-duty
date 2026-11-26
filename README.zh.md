@@ -7,7 +7,7 @@
 | 字段 | 值 |
 | --- | --- |
 | 包名 | `@oakzhong/dsh-off-duty` |
-| 版本 | `1.0.0` |
+| 版本 | `1.0.1` |
 | 入口 | `index.js`（Host，空实现）· `client.js`（Client） |
 | 类型 | DSH bundle 插件，ES 模块（`"type": "module"`、`"private": false`、MIT） |
 | 侧边栏入口 | 下班铃（左侧） |

@@ -243,6 +243,15 @@ window.__ModuleLoader__.load({
         if (liveReminder) { try { liveReminder.cleanup() } catch (_) {} }
       }, [])
 
+      // Persist check-ins to localStorage so they survive panel close / app restart.
+      const addCheckin = useCallback((key) => {
+        setCheckins((prev) => {
+          const next = prev.includes(key) ? prev : [...prev, key].sort()
+          writeJSON(LOG_KEY, next)
+          return next
+        })
+      }, [])
+
       const startReminder = useCallback((fromTest) => {
         const msgs = (cfg.messages && cfg.messages.length) ? cfg.messages : DEFAULT_MESSAGES
         if (cfg.sound && cfg.sound !== 'off') playChime(cfg.sound)
@@ -250,7 +259,7 @@ window.__ModuleLoader__.load({
         showReminderDOM(cfg, t, {
           onCheckin: () => {
             const key = todayKey()
-            setCheckins((prev) => prev.includes(key) ? prev : [...prev, key].sort())
+            addCheckin(key)
             setToast(t('checkedToday'))
           },
           onLater: () => {
@@ -262,7 +271,7 @@ window.__ModuleLoader__.load({
 
       const doCheckin = useCallback(() => {
         const key = todayKey()
-        setCheckins((prev) => prev.includes(key) ? prev : [...prev, key].sort())
+        addCheckin(key)
         dismissReminder()
         setToast(t('checkedToday'))
       }, [dismissReminder])
